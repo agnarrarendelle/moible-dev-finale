@@ -51,7 +51,6 @@ const App = () => {
     };
     setTodos([...todos, newTodo]);
     setTextInput("");
-    }
   };
 
   const saveTodoToUserDevice = async (todos: Todo[]) => {
