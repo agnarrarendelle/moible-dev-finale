@@ -76,8 +76,8 @@ const App = () => {
   const markTodoComplete = (todoId: string) => {
     const newTodosItem = todos.map((item) => {
       if (item.id === todoId) {
-        const currState = item.isCompleted
-        return {...item, isCompleted: !currState}
+        const currState = item.isCompleted;
+        return { ...item, isCompleted: !currState };
       }
       return item;
     });
