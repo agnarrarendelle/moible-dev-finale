@@ -13,6 +13,7 @@ import Icon from "react-native-vector-icons/MaterialIcons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { nanoid } from "nanoid";
 
+import Header from "./components/Header";
 import List from "./components/List";
 import Footer from "./components/Footer";
 type Todo = {
@@ -113,18 +114,7 @@ const App = () => {
         backgroundColor: "white",
       }}
     >
-      <View style={styles.header}>
-        <Text
-          style={{
-            fontWeight: "bold",
-            fontSize: 20,
-            color: COLORS.primary,
-          }}
-        >
-          TODO APP
-        </Text>
-        <Icon name="delete" size={25} color="red" onPress={clearAllTodos} />
-      </View>
+      <Header clearAllTodos={clearAllTodos}></Header>
       <List
         todos={todos}
         markTodoComplete={markTodoComplete}
@@ -139,14 +129,5 @@ const App = () => {
     </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  header: {
-    padding: 20,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-  },
-});
 
 export default App;
