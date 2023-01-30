@@ -104,12 +104,7 @@ const App = () => {
   // const getSortedState = data => sortBy(data, ['completed', 'time']);
 
   return (
-    <SafeAreaView
-      style={{
-        flex: 1,
-        backgroundColor: "white",
-      }}
-    >
+    <SafeAreaView style={styles.main}>
       <Header clearAllTodos={clearAllTodos}></Header>
       <List
         todos={todos}
@@ -125,5 +120,12 @@ const App = () => {
     </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  main: {
+    flex: 1,
+    backgroundColor: "white",
+  },
+});
 
 export default App;
