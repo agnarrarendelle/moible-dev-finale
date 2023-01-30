@@ -40,15 +40,17 @@ const App = () => {
   const addTodo = () => {
     if (textInput === "") {
       Alert.alert("啊哈", "請輸入文字");
-    } else {
-      const newTodo: Todo = {
-        id: nanoid(),
-        task: textInput,
-        isCompleted: false,
-        date: `${new Date()}`,
-      };
-      setTodos([...todos, newTodo]);
-      setTextInput("");
+      return;
+    }
+
+    const newTodo: Todo = {
+      id: nanoid(),
+      task: textInput,
+      isCompleted: false,
+      date: `${new Date()}`,
+    };
+    setTodos([...todos, newTodo]);
+    setTextInput("");
     }
   };
 
