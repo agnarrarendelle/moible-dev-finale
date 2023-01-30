@@ -10,14 +10,14 @@ const ListItem = (prop: Prop) => {
     <View style={styles.listItem}>
       <View style={{ flex: 1 }}>
         <Text
-          style={{
-            fontWeight: "bold",
-            fontSize: 15,
-            color: "#1f145c",
-            textDecorationLine: prop.todo?.isCompleted
-              ? "line-through"
-              : "none",
-          }}
+          style={[
+            styles.taskText,
+            {
+              textDecorationLine: prop.todo?.isCompleted
+                ? "line-through"
+                : "none",
+            },
+          ]}
         >
           {prop.todo?.task}
         </Text>
@@ -57,9 +57,14 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     justifyContent: "center",
     alignItems: "center",
-    // backgroundColor: 'red',
     marginLeft: 5,
     borderRadius: 3,
+  },
+
+  taskText: {
+    fontWeight: "bold",
+    fontSize: 15,
+    color: "#1f145c",
   },
 });
 
