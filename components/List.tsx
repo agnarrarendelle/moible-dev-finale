@@ -11,11 +11,12 @@ const List = (prop: Prop) => {
       showsVerticalScrollIndicator={false}
       contentContainerStyle={{ padding: 20, paddingBottom: 100 }}
       data={prop.todos}
-      renderItem={({ item }) => (
+      renderItem={({ item, index }) => (
         <ListItem
           todo={item}
           markTodoComplete={prop.markTodoComplete}
           deleteTodo={prop.deleteTodo}
+          index={index + 1}
         />
       )}
     />

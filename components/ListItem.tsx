@@ -2,6 +2,7 @@ import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
 import Icon from "react-native-vector-icons/MaterialIcons";
 type Prop = {
   todo: Todo;
+  index:number,
   markTodoComplete: (id: string) => void;
   deleteTodo: (id: string) => void;
 };
