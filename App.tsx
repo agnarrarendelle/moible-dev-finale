@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   StyleSheet,
   SafeAreaView,
@@ -8,22 +8,22 @@ import {
   FlatList,
   TouchableOpacity,
   Alert,
-} from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+} from "react-native";
+import Icon from "react-native-vector-icons/MaterialIcons";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { nanoid } from "nanoid";
-type Todo ={
-  id:string,
-  task:string,
-  isCompleted:boolean,
-  date:string
-}
+type Todo = {
+  id: string;
+  task: string;
+  isCompleted: boolean;
+  date: string;
+};
 
-const COLORS = {primary: '#1f145c', white: '#fff'};
+const COLORS = { primary: "#1f145c", white: "#fff" };
 
 const TodoList = () => {
   const [todos, setTodos] = React.useState<Todo[]>([]);
-  const [textInput, setTextInput] = React.useState<string>('');
+  const [textInput, setTextInput] = React.useState<string>("");
 
   React.useEffect(() => {
     getTodosFromUserDevice();
@@ -34,24 +34,24 @@ const TodoList = () => {
   }, [todos]);
 
   const addTodo = () => {
-    if (textInput === '') {
-      Alert.alert('啊哈', '請輸入文字');
+    if (textInput === "") {
+      Alert.alert("啊哈", "請輸入文字");
     } else {
-      const newTodo:Todo = {
+      const newTodo: Todo = {
         id: nanoid(),
         task: textInput,
         isCompleted: false,
         date: `${new Date()}`,
       };
       setTodos([...todos, newTodo]);
-      setTextInput('');
+      setTextInput("");
     }
   };
 
-  const saveTodoToUserDevice = async (todos:Todo[]) => {
+  const saveTodoToUserDevice = async (todos: Todo[]) => {
     try {
       const stringifyTodos = JSON.stringify(todos);
-      await AsyncStorage.setItem('todos', stringifyTodos);
+      await AsyncStorage.setItem("todos", stringifyTodos);
     } catch (error) {
       console.log(error);
     }
@@ -59,7 +59,7 @@ const TodoList = () => {
 
   const getTodosFromUserDevice = async () => {
     try {
-      const todos = await AsyncStorage.getItem('todos');
+      const todos = await AsyncStorage.getItem("todos");
       if (todos != null) {
         setTodos(JSON.parse(todos));
       }
@@ -68,14 +68,14 @@ const TodoList = () => {
     }
   };
 
-  const markTodoComplete =  ( todoId:string) => {
-    const newTodosItem = todos.map(item => {
+  const markTodoComplete = (todoId: string) => {
+    const newTodosItem = todos.map((item) => {
       if (item.id === todoId) {
         if (!item.isCompleted) {
-          return {...item, isCompleted: true};
+          return { ...item, isCompleted: true };
         }
         if (item.isCompleted) {
-          return {...item, isCompleted: false};
+          return { ...item, isCompleted: false };
         }
       }
       return item;
@@ -84,34 +84,35 @@ const TodoList = () => {
     setTodos(newTodosItem);
   };
 
-  const deleteTodo = (todoId:string) => {
-    const newTodosItem = todos.filter(item => item.id != todoId);
+  const deleteTodo = (todoId: string) => {
+    const newTodosItem = todos.filter((item) => item.id != todoId);
     setTodos(newTodosItem);
   };
 
   const clearAllTodos = () => {
-    Alert.alert('Confirm', 'Clear todos?', [
+    Alert.alert("Confirm", "Clear todos?", [
       {
-        text: 'Yes',
+        text: "Yes",
         onPress: () => setTodos([]),
       },
       {
-        text: 'No',
+        text: "No",
       },
     ]);
   };
 
-  const ListItem = ({todo}:{todo:Todo}) => {
+  const ListItem = ({ todo }: { todo: Todo }) => {
     return (
       <View style={styles.listItem}>
-        <View style={{flex: 1}}>
+        <View style={{ flex: 1 }}>
           <Text
             style={{
-              fontWeight: 'bold',
+              fontWeight: "bold",
               fontSize: 15,
               color: COLORS.primary,
-              textDecorationLine: todo?.isCompleted ? 'line-through' : 'none',
-            }}>
+              textDecorationLine: todo?.isCompleted ? "line-through" : "none",
+            }}
+          >
             {todo?.task}
           </Text>
         </View>
@@ -119,8 +120,9 @@ const TodoList = () => {
           <View
             style={[
               styles.actionIcon,
-              {backgroundColor: todo?.isCompleted ? '#aaaaaa' : 'green'},
-            ]}>
+              { backgroundColor: todo?.isCompleted ? "#aaaaaa" : "green" },
+            ]}
+          >
             <Icon name="done" size={20} color="white" />
           </View>
         </TouchableOpacity>
@@ -139,24 +141,26 @@ const TodoList = () => {
     <SafeAreaView
       style={{
         flex: 1,
-        backgroundColor: 'white',
-      }}>
+        backgroundColor: "white",
+      }}
+    >
       <View style={styles.header}>
         <Text
           style={{
-            fontWeight: 'bold',
+            fontWeight: "bold",
             fontSize: 20,
             color: COLORS.primary,
-          }}>
+          }}
+        >
           TODO APP
         </Text>
         <Icon name="delete" size={25} color="red" onPress={clearAllTodos} />
       </View>
       <FlatList
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{padding: 20, paddingBottom: 100}}
+        contentContainerStyle={{ padding: 20, paddingBottom: 100 }}
         data={todos}
-        renderItem={({item}) => <ListItem todo={item} />}
+        renderItem={({ item }) => <ListItem todo={item} />}
       />
 
       <View style={styles.footer}>
@@ -164,7 +168,7 @@ const TodoList = () => {
           <TextInput
             value={textInput}
             placeholder="Add Todo"
-            onChangeText={text => setTextInput(text)}
+            onChangeText={(text) => setTextInput(text)}
           />
         </View>
         <TouchableOpacity onPress={addTodo}>
@@ -179,11 +183,11 @@ const TodoList = () => {
 
 const styles = StyleSheet.create({
   footer: {
-    position: 'absolute',
+    position: "absolute",
     bottom: 0,
-    width: '100%',
-    flexDirection: 'row',
-    alignItems: 'center',
+    width: "100%",
+    flexDirection: "row",
+    alignItems: "center",
     paddingHorizontal: 20,
     backgroundColor: COLORS.white,
   },
@@ -203,14 +207,14 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.primary,
     elevation: 40,
     borderRadius: 25,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
 
   listItem: {
     padding: 20,
     backgroundColor: COLORS.white,
-    flexDirection: 'row',
+    flexDirection: "row",
     elevation: 12,
     borderRadius: 7,
     marginVertical: 10,
@@ -219,17 +223,17 @@ const styles = StyleSheet.create({
     height: 25,
     width: 25,
     backgroundColor: COLORS.white,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     // backgroundColor: 'red',
     marginLeft: 5,
     borderRadius: 3,
   },
   header: {
     padding: 20,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
   },
 });
 
