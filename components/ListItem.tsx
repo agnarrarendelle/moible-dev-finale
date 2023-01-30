@@ -8,7 +8,7 @@ type Prop = {
 const ListItem = (prop: Prop) => {
   return (
     <View style={styles.listItem}>
-      <View style={{ flex: 1 }}>
+      <View style={{width:"30%"}}>
         <Text
           style={[
             styles.taskText,
@@ -22,6 +22,7 @@ const ListItem = (prop: Prop) => {
           {prop.todo?.task}
         </Text>
       </View>
+      <View>{prop.todo.date}</View>
       <TouchableOpacity onPress={() => prop.markTodoComplete(prop.todo.id)}>
         <View
           style={[
@@ -49,6 +50,7 @@ const styles = StyleSheet.create({
     elevation: 12,
     borderRadius: 7,
     marginVertical: 10,
+    justifyContent:"space-evenly"
   },
 
   actionIcon: {
