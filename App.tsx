@@ -12,6 +12,8 @@ import {
 import Icon from "react-native-vector-icons/MaterialIcons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { nanoid } from "nanoid";
+
+import List from "./components/List";
 type Todo = {
   id: string;
   task: string;
@@ -21,7 +23,7 @@ type Todo = {
 
 const COLORS = { primary: "#1f145c", white: "#fff" };
 
-const TodoList = () => {
+const App = () => {
   const [todos, setTodos] = React.useState<Todo[]>([]);
   const [textInput, setTextInput] = React.useState<string>("");
 
@@ -156,12 +158,13 @@ const TodoList = () => {
         </Text>
         <Icon name="delete" size={25} color="red" onPress={clearAllTodos} />
       </View>
-      <FlatList
+      {/* <FlatList
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ padding: 20, paddingBottom: 100 }}
         data={todos}
         renderItem={({ item }) => <ListItem todo={item} />}
-      />
+      /> */}
+      <List todos={todos} markTodoComplete={markTodoComplete} deleteTodo={deleteTodo}></List>
 
       <View style={styles.footer}>
         <View style={styles.inputContainer}>
@@ -237,4 +240,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default TodoList;
+export default App;
