@@ -14,6 +14,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { nanoid } from "nanoid";
 
 import List from "./components/List";
+import Footer from "./components/Footer";
 type Todo = {
   id: string;
   task: string;
@@ -130,53 +131,16 @@ const App = () => {
         deleteTodo={deleteTodo}
       ></List>
 
-      <View style={styles.footer}>
-        <View style={styles.inputContainer}>
-          <TextInput
-            value={textInput}
-            placeholder="Add Todo"
-            onChangeText={(text) => setTextInput(text)}
-          />
-        </View>
-        <TouchableOpacity onPress={addTodo}>
-          <View style={styles.iconContainer}>
-            <Icon name="add" color="white" size={30} />
-          </View>
-        </TouchableOpacity>
-      </View>
+      <Footer
+        textInput={textInput}
+        setTextInput={setTextInput}
+        addTodo={addTodo}
+      ></Footer>
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  footer: {
-    position: "absolute",
-    bottom: 0,
-    width: "100%",
-    flexDirection: "row",
-    alignItems: "center",
-    paddingHorizontal: 20,
-    backgroundColor: COLORS.white,
-  },
-  inputContainer: {
-    height: 50,
-    paddingHorizontal: 20,
-    elevation: 40,
-    backgroundColor: COLORS.white,
-    flex: 1,
-    marginVertical: 20,
-    marginRight: 20,
-    borderRadius: 30,
-  },
-  iconContainer: {
-    height: 50,
-    width: 50,
-    backgroundColor: COLORS.primary,
-    elevation: 40,
-    borderRadius: 25,
-    justifyContent: "center",
-    alignItems: "center",
-  },
   header: {
     padding: 20,
     flexDirection: "row",
