@@ -103,40 +103,6 @@ const App = () => {
     ]);
   };
 
-  const ListItem = ({ todo }: { todo: Todo }) => {
-    return (
-      <View style={styles.listItem}>
-        <View style={{ flex: 1 }}>
-          <Text
-            style={{
-              fontWeight: "bold",
-              fontSize: 15,
-              color: COLORS.primary,
-              textDecorationLine: todo?.isCompleted ? "line-through" : "none",
-            }}
-          >
-            {todo?.task}
-          </Text>
-        </View>
-        <TouchableOpacity onPress={() => markTodoComplete(todo.id)}>
-          <View
-            style={[
-              styles.actionIcon,
-              { backgroundColor: todo?.isCompleted ? "#aaaaaa" : "green" },
-            ]}
-          >
-            <Icon name="done" size={20} color="white" />
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => deleteTodo(todo.id)}>
-          <View style={styles.actionIcon}>
-            <Icon name="close" size={25} color="red" />
-          </View>
-        </TouchableOpacity>
-      </View>
-    );
-  };
-
   // const getSortedState = data => sortBy(data, ['completed', 'time']);
 
   return (
@@ -158,13 +124,11 @@ const App = () => {
         </Text>
         <Icon name="delete" size={25} color="red" onPress={clearAllTodos} />
       </View>
-      {/* <FlatList
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={{ padding: 20, paddingBottom: 100 }}
-        data={todos}
-        renderItem={({ item }) => <ListItem todo={item} />}
-      /> */}
-      <List todos={todos} markTodoComplete={markTodoComplete} deleteTodo={deleteTodo}></List>
+      <List
+        todos={todos}
+        markTodoComplete={markTodoComplete}
+        deleteTodo={deleteTodo}
+      ></List>
 
       <View style={styles.footer}>
         <View style={styles.inputContainer}>
@@ -212,25 +176,6 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     justifyContent: "center",
     alignItems: "center",
-  },
-
-  listItem: {
-    padding: 20,
-    backgroundColor: COLORS.white,
-    flexDirection: "row",
-    elevation: 12,
-    borderRadius: 7,
-    marginVertical: 10,
-  },
-  actionIcon: {
-    height: 25,
-    width: 25,
-    backgroundColor: COLORS.white,
-    justifyContent: "center",
-    alignItems: "center",
-    // backgroundColor: 'red',
-    marginLeft: 5,
-    borderRadius: 3,
   },
   header: {
     padding: 20,
