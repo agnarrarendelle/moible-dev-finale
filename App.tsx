@@ -86,8 +86,7 @@ const App = () => {
   };
 
   const deleteTodo = (todoId: string) => {
-    const newTodosItem = todos.filter((item) => item.id != todoId);
-    setTodos(newTodosItem);
+    setTodos(todos.filter((item) => item.id !== todoId));
   };
 
   const clearAllTodos = () => {
