@@ -2,16 +2,11 @@ import React from "react";
 import {
   StyleSheet,
   SafeAreaView,
-  View,
-  TextInput,
-  Text,
-  FlatList,
-  TouchableOpacity,
   Alert,
 } from "react-native";
-import Icon from "react-native-vector-icons/MaterialIcons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { nanoid } from "nanoid";
+import moment from "moment"
 
 import Header from "./components/Header";
 import List from "./components/List";
@@ -22,8 +17,6 @@ type Todo = {
   isCompleted: boolean;
   date: string;
 };
-
-const COLORS = { primary: "#1f145c", white: "#fff" };
 
 const App = () => {
   const [todos, setTodos] = React.useState<Todo[]>([]);
@@ -47,7 +40,7 @@ const App = () => {
       id: nanoid(),
       task: textInput,
       isCompleted: false,
-      date: `${new Date()}`,
+      date: moment(new Date()).format('YYYYMMDD'),
     };
     setTodos([...todos, newTodo]);
     setTextInput("");
