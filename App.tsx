@@ -75,12 +75,8 @@ const App = () => {
   const markTodoComplete = (todoId: string) => {
     const newTodosItem = todos.map((item) => {
       if (item.id === todoId) {
-        if (!item.isCompleted) {
-          return { ...item, isCompleted: true };
-        }
-        if (item.isCompleted) {
-          return { ...item, isCompleted: false };
-        }
+        const currState = item.isCompleted
+        return {...item, isCompleted: !currState}
       }
       return item;
     });
