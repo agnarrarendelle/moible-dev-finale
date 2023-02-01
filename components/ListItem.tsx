@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
   },
   task: {
     color: "#fff",
-    width: "90%",
+    width: "65%",
     fontSize: 16,
   },
 
@@ -118,7 +118,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     justifyContent: "center",
     marginLeft: 5,
-    marginRight:15,
     borderRadius: 3,
   },
 
