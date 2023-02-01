@@ -7,5 +7,9 @@ declare global{
         isCompleted: boolean;
         date: Date;
     };
-    
+    const enum FilterOptions{
+        All,
+        Completed,
+        InCompleted
+    }
 }
