@@ -115,6 +115,7 @@ const App = () => {
         todos={todos}
         markTodoComplete={markTodoComplete}
         deleteTodo={deleteTodo}
+        sortBy={sortToDo}
       ></List>
 
       <Footer
