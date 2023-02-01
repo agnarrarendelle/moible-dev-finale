@@ -8,7 +8,7 @@ type Prop = {
 const List = (prop: Prop) => {
   return (
     <FlatList
-      showsVerticalScrollIndicator={false}
+      showsVerticalScrollIndicator={true}
       contentContainerStyle={{ padding: 10 }}
       data={prop.todos}
       renderItem={({ item, index }) => (
