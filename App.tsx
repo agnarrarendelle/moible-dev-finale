@@ -5,6 +5,7 @@ import {
   Alert,
 } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import 'react-native-get-random-values'
 import { nanoid } from "nanoid";
 import moment from "moment"
 
