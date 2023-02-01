@@ -3,7 +3,6 @@ import { StyleSheet, SafeAreaView, Alert } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import "react-native-get-random-values";
 import { nanoid } from "nanoid";
-import moment from "moment";
 
 import Header from "./components/Header";
 import List from "./components/List";
