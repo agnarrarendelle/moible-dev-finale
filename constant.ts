@@ -5,6 +5,7 @@ export const enum FilterOptions{
 }
 
 export const enum SortOptions{
+    All="All",
     Name="Name",
     Date="Date"
 }

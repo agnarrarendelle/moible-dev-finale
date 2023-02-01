@@ -13,7 +13,7 @@ import { SortOptions } from "./constant";
 const App = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [userInput, setUserInput] = useState<string>("");
-  const [filterOption, setFilterOption] = useState<string>("all")
+  const [filterOption, setFilterOption] = useState<string>(SortOptions.All)
   useEffect(() => {
     getTodosFromUserDevice();
   }, []);
