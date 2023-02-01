@@ -74,7 +74,16 @@ const App = () => {
   };
 
   const deleteTodo = (todoId: string) => {
-    setTodos(todos.filter((item) => item.id !== todoId));
+    const todo: Todo = todos.find((todo) => todo.id === todoId)!;
+    Alert.alert(`Are you sure you want to delete task "${todo.task}?"`, "", [
+      {
+        text: "Yes",
+        onPress: () => setTodos(todos.filter((item) => item.id !== todoId)),
+      },
+      {
+        text: "No",
+      },
+    ]);
   };
 
   const clearAllTodos = () => {
