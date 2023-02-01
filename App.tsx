@@ -1,13 +1,9 @@
 import React, { useEffect, useState } from "react";
-import {
-  StyleSheet,
-  SafeAreaView,
-  Alert,
-} from "react-native";
+import { StyleSheet, SafeAreaView, Alert } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import 'react-native-get-random-values'
+import "react-native-get-random-values";
 import { nanoid } from "nanoid";
-import moment from "moment"
+import moment from "moment";
 
 import Header from "./components/Header";
 import List from "./components/List";
@@ -35,7 +31,7 @@ const App = () => {
       id: nanoid(),
       task: textInput,
       isCompleted: false,
-      date: moment(new Date()).format('YYYYMMDD'),
+      date: moment(new Date()).format("YYYYMMDD"),
     };
     setTodos([...todos, newTodo]);
     setTextInput("");
