@@ -5,7 +5,7 @@ declare global{
         id: string;
         task: string;
         isCompleted: boolean;
-        date: string;
+        date: Date;
     };
     
 }

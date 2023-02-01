@@ -31,7 +31,7 @@ const App = () => {
       id: nanoid(),
       task: userInput,
       isCompleted: false,
-      date: moment(new Date()).format("YYYYMMDD"),
+      date:  new Date()
     };
     setTodos([...todos, newTodo]);
     setUserInput("");
