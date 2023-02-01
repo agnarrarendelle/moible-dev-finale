@@ -4,3 +4,9 @@ export const enum FilterOptions{
     InCompleted="InCompleted"
 }
 
+export const enum SortOptions{
+    Name="Name",
+    Date="Date"
+}
+
+
