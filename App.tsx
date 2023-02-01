@@ -11,12 +11,6 @@ import moment from "moment"
 import Header from "./components/Header";
 import List from "./components/List";
 import Footer from "./components/Footer";
-type Todo = {
-  id: string;
-  task: string;
-  isCompleted: boolean;
-  date: string;
-};
 
 const App = () => {
   const [todos, setTodos] = React.useState<Todo[]>([]);
