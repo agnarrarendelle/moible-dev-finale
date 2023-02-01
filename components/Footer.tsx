@@ -4,7 +4,7 @@ import Icon from "react-native-vector-icons/MaterialIcons";
 
 type Prop = {
   textInput: string;
-  setTextInput: (text: string) => void;
+  setUserInput: (text: string) => void;
   addTodo: () => void;
 };
 
@@ -15,7 +15,7 @@ const Footer = (prop: Prop) => {
         <TextInput
           value={prop.textInput}
           placeholder="Add Todo"
-          onChangeText={(text) => prop.setTextInput(text)}
+          onChangeText={(text) => prop.setUserInput(text)}
         />
       </View>
       <TouchableOpacity onPress={prop.addTodo}>

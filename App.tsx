@@ -11,7 +11,7 @@ import Footer from "./components/Footer";
 
 const App = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
-  const [textInput, setTextInput] = useState<string>("");
+  const [userInput, setUserInput] = useState<string>("");
 
   useEffect(() => {
     getTodosFromUserDevice();
@@ -22,19 +22,19 @@ const App = () => {
   }, [todos]);
 
   const addTodo = () => {
-    if (textInput === "") {
+    if (userInput === "") {
       Alert.alert("Task name cannot be empty", "Please enter a task name");
       return;
     }
 
     const newTodo: Todo = {
       id: nanoid(),
-      task: textInput,
+      task: userInput,
       isCompleted: false,
       date: moment(new Date()).format("YYYYMMDD"),
     };
     setTodos([...todos, newTodo]);
-    setTextInput("");
+    setUserInput("");
   };
 
   const saveTodoToUserDevice = async (todos: Todo[]) => {
@@ -106,8 +106,8 @@ const App = () => {
       ></List>
 
       <Footer
-        textInput={textInput}
-        setTextInput={setTextInput}
+        textInput={userInput}
+        setUserInput={setUserInput}
         addTodo={addTodo}
       ></Footer>
     </SafeAreaView>
