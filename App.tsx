@@ -23,7 +23,7 @@ const App = () => {
 
   const addTodo = () => {
     if (textInput === "") {
-      Alert.alert("啊哈", "請輸入文字");
+      Alert.alert("Task name cannot be empty", "Please enter a task name");
       return;
     }
 
