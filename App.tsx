@@ -97,16 +97,15 @@ const App = () => {
   };
 
   const sortToDo=(option:string)=>{
-    let res:Todo[] = [];
+    let res:Todo[] = [...todos];
     switch (option){
       case "name":
-        res = todos.sort((a,b)=>a.task.localeCompare(b.task))
+        res = res.sort((a,b)=>a.task.localeCompare(b.task))
         break;
       case "date":
-        res = todos.sort((a,b)=>a.date.getTime() - b.date.getTime())
+        res = res.sort((a,b)=>a.date.getTime() - b.date.getTime())
         break;
     }
-
     setTodos(res)
   }
 
