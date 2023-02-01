@@ -50,7 +50,9 @@ const App = () => {
     try {
       const todos = await AsyncStorage.getItem("todos");
       if (todos != null) {
-        setTodos(JSON.parse(todos));
+        const todoArr:Todo[] = JSON.parse(todos)
+        todoArr.forEach(todo=>todo.date = new Date(todo.date))
+        setTodos(todoArr);
       }
     } catch (error) {
       console.log(error);
