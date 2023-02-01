@@ -95,7 +95,7 @@ const App = () => {
   };
 
   const sortToDo=(option:string)=>{
-    let res;
+    let res:Todo[] = [];
     switch (option){
       case "name":
         res = todos.sort((a,b)=>a.task.localeCompare(b.task))
