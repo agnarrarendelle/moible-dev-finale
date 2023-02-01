@@ -9,7 +9,7 @@ const List = (prop: Prop) => {
   return (
     <FlatList
       showsVerticalScrollIndicator={false}
-      contentContainerStyle={{ padding: 20, paddingBottom: 100 }}
+      contentContainerStyle={{ padding: 10 }}
       data={prop.todos}
       renderItem={({ item, index }) => (
         <ListItem
