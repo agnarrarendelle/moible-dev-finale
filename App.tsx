@@ -113,6 +113,7 @@ const App = () => {
     <SafeAreaView style={styles.main}>
       <Header clearAllTodos={clearAllTodos}></Header>
       <List
+        filterOption={filterOption}
         todos={todos}
         markTodoComplete={markTodoComplete}
         deleteTodo={deleteTodo}
