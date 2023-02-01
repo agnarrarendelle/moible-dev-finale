@@ -12,7 +12,7 @@ import Footer from "./components/Footer";
 const App = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [userInput, setUserInput] = useState<string>("");
-
+  const [filterOption, setFilterOption] = useState<string>("all")
   useEffect(() => {
     getTodosFromUserDevice();
   }, []);
@@ -105,6 +105,9 @@ const App = () => {
       case "date":
         res = res.sort((a,b)=>a.date.getTime() - b.date.getTime())
         break;
+      default:
+        setFilterOption(option)
+        return
     }
     setTodos(res)
   }
