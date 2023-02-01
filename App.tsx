@@ -9,6 +9,7 @@ import Header from "./components/Header";
 import List from "./components/List";
 import Footer from "./components/Footer";
 
+import { SortOptions } from "./constant";
 const App = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [userInput, setUserInput] = useState<string>("");
@@ -99,10 +100,10 @@ const App = () => {
   const sortToDo=(option:string)=>{
     let res:Todo[] = [...todos];
     switch (option){
-      case "name":
+      case SortOptions.Name:
         res = res.sort((a,b)=>a.task.localeCompare(b.task))
         break;
-      case "date":
+      case SortOptions.Date:
         res = res.sort((a,b)=>a.date.getTime() - b.date.getTime())
         break;
       default:
