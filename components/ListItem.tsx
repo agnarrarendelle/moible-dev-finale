@@ -2,28 +2,22 @@ import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
 import Icon from "react-native-vector-icons/MaterialIcons";
 type Prop = {
   todo: Todo;
-  index:number,
+  index: number;
   markTodoComplete: (id: string) => void;
   deleteTodo: (id: string) => void;
 };
 const ListItem = (prop: Prop) => {
   return (
-    <View style={styles.listItem}>
-      <View style={{width:"30%"}}>
-        <Text
-          style={[
-            styles.taskText,
-            {
+    <View style={styles.container}>
+      <View style={styles.indexContainer}>
+        <Text style={styles.index}>{prop.index}</Text>
+      </View>
+      <View style={styles.taskContainer}>
+        <Text style={[styles.task,{
               textDecorationLine: prop.todo?.isCompleted
                 ? "line-through"
                 : "none",
-            },
-          ]}
-        >
-          {prop.todo?.task}
-        </Text>
-      </View>
-      <View>{prop.todo.date}</View>
+            },]}>{prop.todo.task}</Text>
       <TouchableOpacity onPress={() => prop.markTodoComplete(prop.todo.id)}>
         <View
           style={[
@@ -39,11 +33,48 @@ const ListItem = (prop: Prop) => {
           <Icon name="close" size={25} color="red" />
         </View>
       </TouchableOpacity>
+      </View>
     </View>
+
   );
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flexDirection: "row",
+    marginHorizontal: 20,
+    marginVertical: 8,
+  },
+  indexContainer: {
+    backgroundColor: "#3E3364",
+    borderRadius: 12,
+    marginRight: 10,
+    alignItems: "center",
+    justifyContent: "center",
+    width: 50,
+    height: 50,
+  },
+  index: {
+    color: "#fff",
+    fontSize: 20,
+  },
+  taskContainer: {
+    backgroundColor: "#3E3364",
+    borderRadius: 12,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    flex: 1,
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    minHeight: 50,
+  },
+  task: {
+    color: "#fff",
+    width: "65%",
+    fontSize: 16,
+  },
+
   listItem: {
     padding: 20,
     backgroundColor: "#fff",
@@ -51,7 +82,7 @@ const styles = StyleSheet.create({
     elevation: 12,
     borderRadius: 7,
     marginVertical: 10,
-    justifyContent:"space-evenly"
+    justifyContent: "space-evenly",
   },
 
   actionIcon: {
@@ -59,7 +90,6 @@ const styles = StyleSheet.create({
     width: 25,
     backgroundColor: "#fff",
     justifyContent: "center",
-    alignItems: "center",
     marginLeft: 5,
     borderRadius: 3,
   },
