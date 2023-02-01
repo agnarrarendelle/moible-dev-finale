@@ -94,7 +94,19 @@ const App = () => {
     ]);
   };
 
-  // const getSortedState = data => sortBy(data, ['completed', 'time']);
+  const sortToDo=(option:string)=>{
+    let res;
+    switch (option){
+      case "name":
+        res = todos.sort((a,b)=>a.task.localeCompare(b.task))
+        break;
+      case "date":
+        res = todos.sort((a,b)=>a.date.getTime() - b.date.getTime())
+        break;
+    }
+
+    setTodos(res)
+  }
 
   return (
     <SafeAreaView style={styles.main}>
