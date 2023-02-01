@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   StyleSheet,
   SafeAreaView,
@@ -13,14 +13,14 @@ import List from "./components/List";
 import Footer from "./components/Footer";
 
 const App = () => {
-  const [todos, setTodos] = React.useState<Todo[]>([]);
-  const [textInput, setTextInput] = React.useState<string>("");
+  const [todos, setTodos] = useState<Todo[]>([]);
+  const [textInput, setTextInput] = useState<string>("");
 
-  React.useEffect(() => {
+  useEffect(() => {
     getTodosFromUserDevice();
   }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     saveTodoToUserDevice(todos);
   }, [todos]);
 
