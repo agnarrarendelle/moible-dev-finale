@@ -25,10 +25,11 @@ const List = (prop: Prop) => {
     }
   };
 
-  const openListDetail = (id: string, task: string) => {
+  const openListDetail = (id: string, task: string, detail?:string) => {
     prop.navigator.navigate("ListDetail", {
       id: id,
       task: task,
+      detail:detail,
       setTaskDetail: prop.setTaskDetail,
     });
   };
