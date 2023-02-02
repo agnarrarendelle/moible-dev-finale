@@ -38,6 +38,7 @@ const List = (prop: Prop) => {
             markTodoComplete={prop.markTodoComplete}
             deleteTodo={prop.deleteTodo}
             index={index + 1}
+            openListDetail={openListDetail}
           />
         )}
       />
