@@ -14,20 +14,21 @@ import { NavigationContainer } from "@react-navigation/native";
 import Home from "./components/Home";
 import ListDetail from "./components/ListDetail";
 
-const Stack = createNativeStackNavigator<StackParamList>()
+const Stack = createNativeStackNavigator<StackParamList>();
 
 const App = () => {
-
-return (
-  <NavigationContainer>
-    <Stack.Navigator>
-      <Stack.Screen name="Home" component={Home} options={{ headerShown: false }}></Stack.Screen>
-      <Stack.Screen name="ListDetail" component={ListDetail}></Stack.Screen>
-    </Stack.Navigator>
-  </NavigationContainer>
-)
-
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Home"
+          component={Home}
+          options={{ headerShown: false }}
+        ></Stack.Screen>
+        <Stack.Screen name="ListDetail" component={ListDetail}></Stack.Screen>
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 };
-
 
 export default App;

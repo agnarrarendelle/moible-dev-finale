@@ -6,11 +6,14 @@ type Prop = {
   index: number;
   markTodoComplete: (id: string) => void;
   deleteTodo: (id: string) => void;
-  openListDetail:(id:string)=>void
+  openListDetail: (id: string) => void;
 };
 const ListItem = (prop: Prop) => {
   return (
-    <TouchableOpacity style={styles.container} onPress={()=>prop.openListDetail(prop.todo.id)}>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={() => prop.openListDetail(prop.todo.id)}
+    >
       <View style={styles.indexContainer}>
         <Text style={styles.index}>{prop.index}</Text>
       </View>

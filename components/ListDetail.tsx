@@ -9,7 +9,10 @@ const ListDetail: React.FC<ListDetailScreenProp> = (prop) => {
   return (
     <View>
       <Text>{prop.route.params.id}</Text>
-      <Button title="test" onPress={()=>prop.navigation.navigate("Home")}></Button>
+      <Button
+        title="test"
+        onPress={() => prop.navigation.navigate("Home")}
+      ></Button>
     </View>
   );
 };

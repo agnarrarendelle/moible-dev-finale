@@ -11,9 +11,9 @@ import Footer from "./Footer";
 import { SortOptions } from "../constant";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
-type HomeScreenProp=NativeStackScreenProps<StackParamList, "Home">
+type HomeScreenProp = NativeStackScreenProps<StackParamList, "Home">;
 
-const Home:React.FC<HomeScreenProp> = (prop) => {
+const Home: React.FC<HomeScreenProp> = (prop) => {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [userInput, setUserInput] = useState<string>("");
   const [filterOption, setFilterOption] = useState<string>(SortOptions.All);

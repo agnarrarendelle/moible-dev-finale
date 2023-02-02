@@ -9,7 +9,7 @@ type Prop = {
   markTodoComplete: (id: string) => void;
   deleteTodo: (id: string) => void;
   sortBy: (option: string) => void;
-  navigator:NativeStackNavigationProp<StackParamList, "Home", undefined>
+  navigator: NativeStackNavigationProp<StackParamList, "Home", undefined>;
 };
 const List = (prop: Prop) => {
   const getFilteredList = () => {
@@ -23,9 +23,9 @@ const List = (prop: Prop) => {
     }
   };
 
-  const openListDetail=(id:string)=>{
-    prop.navigator.navigate("ListDetail", {id:id})
-  }
+  const openListDetail = (id: string) => {
+    prop.navigator.navigate("ListDetail", { id: id });
+  };
   return (
     <View>
       <Dropdown sortBy={prop.sortBy}></Dropdown>
