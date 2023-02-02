@@ -6,12 +6,17 @@ declare global {
     task: string;
     isCompleted: boolean;
     date: Date;
-    detail?:string
+    detail?: string;
   };
 
   type StackParamList = {
     Home: undefined;
-    ListDetail: { id: string, task:string };
+    ListDetail: {
+      id: string;
+      task: string;
+      setTaskName: (string) => void;
+      setTaskDetail: (string) => void;
+    };
   };
 
   type HomeScreenProp = NativeStackScreenProps<StackParamList, "Home">;
