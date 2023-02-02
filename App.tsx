@@ -17,7 +17,11 @@ const App = () => {
           component={Home}
           options={{ headerShown: false }}
         ></Stack.Screen>
-        <Stack.Screen name="ListDetail" component={ListDetail}></Stack.Screen>
+        <Stack.Screen
+          name="ListDetail"
+          component={ListDetail}
+          options={({ route }) => ({ title: route.params.task })}
+        ></Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
   );
