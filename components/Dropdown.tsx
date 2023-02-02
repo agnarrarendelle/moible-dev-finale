@@ -5,10 +5,16 @@ type Prop = {
   sortBy: (option: string) => void;
 };
 
+type DropdownOption = {
+  label: string;
+  value: string;
+  parent?: string;
+};
+
 const Dropdown = (prop: Prop) => {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(null);
-  const [items, setItems] = useState([
+  const [items, setItems] = useState<DropdownOption[]>([
     { label: "Sort by", value: "sort" },
     { label: "Name", value: SortOptions.Name, parent: "sort" },
     { label: "Date", value: SortOptions.Date, parent: "sort" },
