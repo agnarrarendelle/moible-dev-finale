@@ -6,6 +6,7 @@ declare global {
     task: string;
     isCompleted: boolean;
     date: Date;
+    detail?:string
   };
 
   type StackParamList = {
