@@ -10,6 +10,11 @@ const ListDetail: React.FC<ListDetailScreenProp> = (prop) => {
   const [taskName, setTaskName] = useState(prop.route.params.task);
   const [taskDetail, setTaskDetail] = useState("");
 
+  const onSaveBtnPressed=()=>{
+    const id = prop.route.params.id
+    prop.navigation.navigate("Home")
+    prop.route.params.setTaskDetail(id,taskName,taskDetail)
+  }
   return (
     <SafeAreaView>
       <TextInput
@@ -25,7 +30,7 @@ const ListDetail: React.FC<ListDetailScreenProp> = (prop) => {
 
       <Button
         title="save"
-        onPress={() => prop.navigation.navigate("Home")}
+        onPress={onSaveBtnPressed}
       ></Button>
     </SafeAreaView>
   );
