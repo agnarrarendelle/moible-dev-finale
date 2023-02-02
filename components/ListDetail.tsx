@@ -8,7 +8,7 @@ type ListDetailScreenProp = NativeStackScreenProps<
 const ListDetail: React.FC<ListDetailScreenProp> = (prop) => {
   return (
     <View>
-      <Text>{prop.route.params.id}</Text>
+      <Text>{prop.route.params.task}</Text>
       <Button
         title="test"
         onPress={() => prop.navigation.navigate("Home")}

@@ -24,8 +24,8 @@ const List = (prop: Prop) => {
     }
   };
 
-  const openListDetail = (id: string) => {
-    prop.navigator.navigate("ListDetail", { id: id });
+  const openListDetail = (id: string, task:string) => {
+    prop.navigator.navigate("ListDetail", { id: id, task:task });
   };
   return (
     <View>
