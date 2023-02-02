@@ -10,7 +10,7 @@ declare global {
 
   type StackParamList = {
     Home: undefined;
-    ListDetail: { id: string };
+    ListDetail: { id: string, task:string };
   };
 
   type HomeScreenProp = NativeStackScreenProps<StackParamList, "Home">;
