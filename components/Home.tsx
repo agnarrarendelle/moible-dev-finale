@@ -116,6 +116,30 @@ const Home: React.FC<HomeScreenProp> = (prop) => {
     setTodos(res);
   };
 
+  const changeTodoTask = (todoId: string, newTask: string) => {
+    const newTodos = todos.map((todo) => {
+      if (todo.id === todoId) {
+        return { ...todo, task: newTask };
+      } else {
+        return todo;
+      }
+    });
+
+    setTodos(newTodos);
+  };
+
+  const changeTodoDetail = (todoId: string, newDetail: string) => {
+    const newTodos = todos.map((todo) => {
+      if (todo.id === todoId) {
+        return { ...todo, detail: newDetail };
+      } else {
+        return todo;
+      }
+    });
+
+    setTodos(newTodos);
+  };
+
   return (
     <SafeAreaView style={styles.main}>
       <Header clearAllTodos={clearAllTodos}></Header>
