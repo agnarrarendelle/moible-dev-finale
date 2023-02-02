@@ -1,3 +1,4 @@
+import moment from "moment";
 import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
 import Icon from "react-native-vector-icons/MaterialIcons";
 type Prop = {
@@ -78,7 +79,7 @@ const styles = StyleSheet.create({
   },
   task: {
     color: "#fff",
-    width: "65%",
+    width: "40%",
     fontSize: 16,
   },
 
