@@ -22,6 +22,9 @@ const List = (prop: Prop) => {
     }
   };
 
+  const openListDetail=(id:string)=>{
+    prop.navigator.navigate("ListDetail", {id:id})
+  }
   return (
     <View>
       <Dropdown sortBy={prop.sortBy}></Dropdown>
