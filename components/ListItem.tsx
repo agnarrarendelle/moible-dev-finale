@@ -25,6 +25,7 @@ const ListItem = (prop: Prop) => {
         >
           {prop.todo.task}
         </Text>
+        <Text>{moment(prop.todo.date).format("YYYY/MM/DD")}</Text>
         <TouchableOpacity onPress={() => prop.markTodoComplete(prop.todo.id)}>
           <View
             style={[
