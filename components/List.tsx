@@ -8,6 +8,7 @@ type Prop = {
   markTodoComplete: (id: string) => void;
   deleteTodo: (id: string) => void;
   sortBy: (option: string) => void;
+  navigator:NativeStackNavigationProp<StackParamList, "Home", undefined>
 };
 const List = (prop: Prop) => {
   const getFilteredList = () => {
