@@ -21,7 +21,7 @@ const App = () => {
 return (
   <NavigationContainer>
     <Stack.Navigator>
-      <Stack.Screen name="Home" component={Home}></Stack.Screen>
+      <Stack.Screen name="Home" component={Home} options={{ headerShown: false }}></Stack.Screen>
       <Stack.Screen name="ListDetail" component={ListDetail}></Stack.Screen>
     </Stack.Navigator>
   </NavigationContainer>
