@@ -1,5 +1,5 @@
 import React from "react";
-import { View, TextInput, TouchableOpacity, StyleSheet } from "react-native";
+import { View, TextInput, TouchableOpacity, StyleSheet, KeyboardAvoidingView, Platform } from "react-native";
 import Icon from "react-native-vector-icons/MaterialIcons";
 
 type Prop = {
@@ -10,7 +10,9 @@ type Prop = {
 
 const Footer = (prop: Prop) => {
   return (
-    <View style={styles.footer}>
+    <KeyboardAvoidingView
+    behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+     style={styles.footer}>
       <View style={styles.inputContainer}>
         <TextInput
           value={prop.textInput}
@@ -23,7 +25,7 @@ const Footer = (prop: Prop) => {
           <Icon name="add" color="white" size={30} />
         </View>
       </TouchableOpacity>
-    </View>
+    </KeyboardAvoidingView>
   );
 };
 
@@ -38,18 +40,19 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
   },
   inputContainer: {
-    height: 50,
+    height: 40,
     paddingHorizontal: 20,
     elevation: 40,
     backgroundColor: "#fff",
+    borderColor: '#C0C0C0',
     flex: 1,
     marginVertical: 20,
     marginRight: 20,
-    borderRadius: 30,
+    borderRadius: 40,
   },
   iconContainer: {
-    height: 50,
-    width: 50,
+    height: 40,
+    width: 40,
     backgroundColor: "#1f145c",
     elevation: 40,
     borderRadius: 25,
