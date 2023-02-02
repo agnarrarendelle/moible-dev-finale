@@ -8,7 +8,7 @@ type ListDetailScreenProp = NativeStackScreenProps<
 >;
 const ListDetail: React.FC<ListDetailScreenProp> = (prop) => {
   const [taskName, setTaskName] = useState(prop.route.params.task);
-  const [taskDetail, setTaskDetail] = useState("");
+  const [taskDetail, setTaskDetail] = useState(prop.route.params.detail===undefined ? "":prop.route.params.detail);
 
   const onSaveBtnPressed=()=>{
     const id = prop.route.params.id
