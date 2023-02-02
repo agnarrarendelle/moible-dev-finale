@@ -46,7 +46,7 @@ const Home: React.FC<HomeScreenProp> = (prop) => {
       const stringifyTodos = JSON.stringify(todos);
       await AsyncStorage.setItem("todos", stringifyTodos);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
@@ -59,7 +59,7 @@ const Home: React.FC<HomeScreenProp> = (prop) => {
         setTodos(todoArr);
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
