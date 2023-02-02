@@ -10,7 +10,7 @@ type Prop = {
   markTodoComplete: (id: string) => void;
   deleteTodo: (id: string) => void;
   sortBy: (option: string) => void;
-  setTaskDetail: (id: string,newTask:string, newDetail: string) => void;
+  setTaskDetail: (id: string, newTask: string, newDetail: string) => void;
   navigator: NativeStackNavigationProp<StackParamList, "Home", undefined>;
 };
 const List = (prop: Prop) => {
@@ -25,11 +25,11 @@ const List = (prop: Prop) => {
     }
   };
 
-  const openListDetail = (id: string, task: string, detail?:string) => {
+  const openListDetail = (id: string, task: string, detail?: string) => {
     prop.navigator.navigate("ListDetail", {
       id: id,
       task: task,
-      detail:detail,
+      detail: detail,
       setTaskDetail: prop.setTaskDetail,
     });
   };

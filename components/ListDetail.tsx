@@ -8,13 +8,15 @@ type ListDetailScreenProp = NativeStackScreenProps<
 >;
 const ListDetail: React.FC<ListDetailScreenProp> = (prop) => {
   const [taskName, setTaskName] = useState(prop.route.params.task);
-  const [taskDetail, setTaskDetail] = useState(prop.route.params.detail===undefined ? "":prop.route.params.detail);
+  const [taskDetail, setTaskDetail] = useState(
+    prop.route.params.detail === undefined ? "" : prop.route.params.detail
+  );
 
-  const onSaveBtnPressed=()=>{
-    const id = prop.route.params.id
-    prop.navigation.navigate("Home")
-    prop.route.params.setTaskDetail(id,taskName,taskDetail)
-  }
+  const onSaveBtnPressed = () => {
+    const id = prop.route.params.id;
+    prop.navigation.navigate("Home");
+    prop.route.params.setTaskDetail(id, taskName, taskDetail);
+  };
   return (
     <SafeAreaView>
       <TextInput
@@ -28,10 +30,7 @@ const ListDetail: React.FC<ListDetailScreenProp> = (prop) => {
         onChangeText={(detail) => setTaskDetail(detail)}
       ></TextInput>
 
-      <Button
-        title="save"
-        onPress={onSaveBtnPressed}
-      ></Button>
+      <Button title="save" onPress={onSaveBtnPressed}></Button>
     </SafeAreaView>
   );
 };

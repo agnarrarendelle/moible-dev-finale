@@ -116,10 +116,14 @@ const Home: React.FC<HomeScreenProp> = (prop) => {
     setTodos(res);
   };
 
-  const changeTodoDetail = (todoId: string,newTask:string, newDetail: string) => {
+  const changeTodoDetail = (
+    todoId: string,
+    newTask: string,
+    newDetail: string
+  ) => {
     const newTodos = todos.map((todo) => {
       if (todo.id === todoId) {
-        return { ...todo, task:newTask, detail: newDetail };
+        return { ...todo, task: newTask, detail: newDetail };
       } else {
         return todo;
       }
