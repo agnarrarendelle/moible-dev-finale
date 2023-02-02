@@ -149,6 +149,8 @@ const Home: React.FC<HomeScreenProp> = (prop) => {
         markTodoComplete={markTodoComplete}
         deleteTodo={deleteTodo}
         sortBy={sortToDo}
+        setTaskName={changeTodoTask}
+        setTaskDetail={changeTodoDetail}
         navigator={prop.navigation}
       ></List>
 
