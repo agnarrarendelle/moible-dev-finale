@@ -6,7 +6,7 @@ type Prop = {
   index: number;
   markTodoComplete: (id: string) => void;
   deleteTodo: (id: string) => void;
-  openListDetail: (id: string, task:string) => void;
+  openListDetail: (id: string, task: string) => void;
 };
 const ListItem = (prop: Prop) => {
   return (
