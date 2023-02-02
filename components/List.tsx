@@ -4,23 +4,22 @@ import ListItem from "./ListItem";
 import { FilterOptions } from "../constant";
 type Prop = {
   todos: Todo[];
-  filterOption:string,
+  filterOption: string;
   markTodoComplete: (id: string) => void;
   deleteTodo: (id: string) => void;
-  sortBy:(option:string)=>void
-
+  sortBy: (option: string) => void;
 };
 const List = (prop: Prop) => {
-  const getFilteredList=()=>{
-    switch(prop.filterOption){
+  const getFilteredList = () => {
+    switch (prop.filterOption) {
       case FilterOptions.All:
-        return prop.todos
+        return prop.todos;
       case FilterOptions.Completed:
-        return prop.todos.filter(todo=>todo.isCompleted === true)
+        return prop.todos.filter((todo) => todo.isCompleted === true);
       case FilterOptions.InCompleted:
-        return prop.todos.filter(todo=>todo.isCompleted === false)
+        return prop.todos.filter((todo) => todo.isCompleted === false);
     }
-  }
+  };
 
   return (
     <View>

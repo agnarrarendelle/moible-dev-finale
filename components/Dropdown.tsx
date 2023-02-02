@@ -1,11 +1,11 @@
 import { useState } from "react";
 import DropDownPicker from "react-native-dropdown-picker";
 import { FilterOptions, SortOptions } from "../constant";
-type Prop={
-    sortBy:(option:string)=>void
-}
+type Prop = {
+  sortBy: (option: string) => void;
+};
 
-const Dropdown = (prop:Prop) => {
+const Dropdown = (prop: Prop) => {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(null);
   const [items, setItems] = useState([
@@ -13,8 +13,16 @@ const Dropdown = (prop:Prop) => {
     { label: "Name", value: SortOptions.Name, parent: "sort" },
     { label: "Date", value: SortOptions.Date, parent: "sort" },
     { label: "Filter tasks", value: "filter task" },
-    { label: "Completed", value: FilterOptions.Completed, parent: "filter task" },
-    { label: "Incompleted", value: FilterOptions.InCompleted, parent: "filter task" },
+    {
+      label: "Completed",
+      value: FilterOptions.Completed,
+      parent: "filter task",
+    },
+    {
+      label: "Incompleted",
+      value: FilterOptions.InCompleted,
+      parent: "filter task",
+    },
     { label: "All", value: FilterOptions.All, parent: "filter task" },
   ]);
   return (
@@ -25,7 +33,7 @@ const Dropdown = (prop:Prop) => {
       setOpen={setOpen}
       setValue={setValue}
       setItems={setItems}
-      onChangeValue={(v)=>prop.sortBy(v!)}
+      onChangeValue={(v) => prop.sortBy(v!)}
     />
   );
 };

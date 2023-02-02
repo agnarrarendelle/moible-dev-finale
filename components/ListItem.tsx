@@ -13,29 +13,35 @@ const ListItem = (prop: Prop) => {
         <Text style={styles.index}>{prop.index}</Text>
       </View>
       <View style={styles.taskContainer}>
-        <Text style={[styles.task,{
+        <Text
+          style={[
+            styles.task,
+            {
               textDecorationLine: prop.todo?.isCompleted
                 ? "line-through"
                 : "none",
-            },]}>{prop.todo.task}</Text>
-      <TouchableOpacity onPress={() => prop.markTodoComplete(prop.todo.id)}>
-        <View
-          style={[
-            styles.actionIcon,
-            { backgroundColor: prop.todo?.isCompleted ? "#aaaaaa" : "green" },
+            },
           ]}
         >
-          <Icon name="done" size={20} color="white" />
-        </View>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => prop.deleteTodo(prop.todo.id)}>
-        <View style={styles.actionIcon}>
-          <Icon name="close" size={25} color="red" />
-        </View>
-      </TouchableOpacity>
+          {prop.todo.task}
+        </Text>
+        <TouchableOpacity onPress={() => prop.markTodoComplete(prop.todo.id)}>
+          <View
+            style={[
+              styles.actionIcon,
+              { backgroundColor: prop.todo?.isCompleted ? "#aaaaaa" : "green" },
+            ]}
+          >
+            <Icon name="done" size={20} color="white" />
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => prop.deleteTodo(prop.todo.id)}>
+          <View style={styles.actionIcon}>
+            <Icon name="close" size={25} color="red" />
+          </View>
+        </TouchableOpacity>
       </View>
     </View>
-
   );
 };
 
