@@ -1,8 +1,9 @@
 import { FlatList, View } from "react-native";
-import Dropdown from "./Dropdown";
-import ListItem from "./ListItem";
 import { FilterOptions } from "../constant";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+
+import ListItem from "./ListItem";
+import Dropdown from "./Dropdown";
 type Prop = {
   todos: Todo[];
   filterOption: string;

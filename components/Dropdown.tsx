@@ -1,6 +1,6 @@
 import { useState } from "react";
-import DropDownPicker from "react-native-dropdown-picker";
 import { FilterOptions, SortOptions } from "../constant";
+import DropDownPicker from "react-native-dropdown-picker";
 type Prop = {
   sortBy: (option: string) => void;
 };

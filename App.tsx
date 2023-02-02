@@ -1,16 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { StyleSheet, SafeAreaView, Alert } from "react-native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import React from "react";
 import "react-native-get-random-values";
-import { nanoid } from "nanoid";
-
-import Header from "./components/Header";
-import List from "./components/List";
-import Footer from "./components/Footer";
-
-import { SortOptions } from "./constant";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
 import Home from "./components/Home";
 import ListDetail from "./components/ListDetail";
 
