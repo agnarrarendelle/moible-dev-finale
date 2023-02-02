@@ -14,8 +14,8 @@ declare global {
     ListDetail: {
       id: string;
       task: string;
-      setTaskName: (string) => void;
-      setTaskDetail: (string) => void;
+      setTaskName: (id:string, newTask:string) => void;
+      setTaskDetail: (id:string, newDetail:string) => void;
     };
   };
 
