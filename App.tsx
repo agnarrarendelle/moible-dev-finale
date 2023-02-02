@@ -12,7 +12,7 @@ import { SortOptions } from "./constant";
 const App = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [userInput, setUserInput] = useState<string>("");
-  const [filterOption, setFilterOption] = useState<string>(SortOptions.All)
+  const [filterOption, setFilterOption] = useState<string>(SortOptions.All);
   useEffect(() => {
     getTodosFromUserDevice();
   }, []);
@@ -31,7 +31,7 @@ const App = () => {
       id: nanoid(),
       task: userInput,
       isCompleted: false,
-      date:  new Date()
+      date: new Date(),
     };
     setTodos([...todos, newTodo]);
     setUserInput("");
@@ -50,8 +50,8 @@ const App = () => {
     try {
       const todos = await AsyncStorage.getItem("todos");
       if (todos != null) {
-        const todoArr:Todo[] = JSON.parse(todos)
-        todoArr.forEach(todo=>todo.date = new Date(todo.date))
+        const todoArr: Todo[] = JSON.parse(todos);
+        todoArr.forEach((todo) => (todo.date = new Date(todo.date)));
         setTodos(todoArr);
       }
     } catch (error) {
@@ -96,21 +96,21 @@ const App = () => {
     ]);
   };
 
-  const sortToDo=(option:string)=>{
-    let res:Todo[] = [...todos];
-    switch (option){
+  const sortToDo = (option: string) => {
+    let res: Todo[] = [...todos];
+    switch (option) {
       case SortOptions.Name:
-        res = res.sort((a,b)=>a.task.localeCompare(b.task))
+        res = res.sort((a, b) => a.task.localeCompare(b.task));
         break;
       case SortOptions.Date:
-        res = res.sort((a,b)=>a.date.getTime() - b.date.getTime())
+        res = res.sort((a, b) => a.date.getTime() - b.date.getTime());
         break;
       default:
-        setFilterOption(option)
-        return
+        setFilterOption(option);
+        return;
     }
-    setTodos(res)
-  }
+    setTodos(res);
+  };
 
   return (
     <SafeAreaView style={styles.main}>
