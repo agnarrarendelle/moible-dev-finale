@@ -16,13 +16,13 @@ const ListItem = (prop: Prop) => {
         prop.openListDetail(prop.todo.id, prop.todo.task, prop.todo.detail)
       }
     >
-      <View style={styles.indexContainer}>
-        <Text style={styles.index}>{prop.index}</Text>
+      <View style={styles.numContainer}>
+        <Text style={styles.number}>{prop.index}</Text>
       </View>
-      <View style={styles.taskContainer}>
+      <View style={styles.itemContainer}>
         <Text
           style={[
-            styles.task,
+            styles.item,
             {
               textDecorationLine: prop.todo?.isCompleted
                 ? "line-through"
@@ -32,12 +32,16 @@ const ListItem = (prop: Prop) => {
         >
           {prop.todo.task}
         </Text>
-        <Text>{moment(prop.todo.date).format("YYYY/MM/DD")}</Text>
+        <Text style={styles.dateText}>
+          {moment(prop.todo.date).format("YYYY/MM/DD")}
+        </Text>
         <TouchableOpacity onPress={() => prop.markTodoComplete(prop.todo.id)}>
           <View
             style={[
               styles.actionIcon,
-              { backgroundColor: prop.todo?.isCompleted ? "#aaaaaa" : "green" },
+              {
+                backgroundColor: prop.todo?.isCompleted ? "#aaaaaa" : "#0fee07",
+              },
             ]}
           >
             <Icon name="done" size={20} color="white" />
@@ -59,31 +63,31 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
     marginVertical: 8,
   },
-  indexContainer: {
-    backgroundColor: "#3E3364",
-    borderRadius: 12,
+  numContainer: {
+    backgroundColor: "#000000",
+    borderRadius: 15,
     marginRight: 10,
-    alignItems: "center",
     justifyContent: "center",
-    width: 50,
+    alignItems: "center",
     height: 50,
+    width: 50,
   },
-  index: {
+  number: {
     color: "#fff",
     fontSize: 20,
+    fontWeight: "bold",
   },
-  taskContainer: {
-    backgroundColor: "#3E3364",
+  itemContainer: {
+    backgroundColor: "#000000",
     borderRadius: 12,
+    flex: 1,
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    flex: 1,
-    paddingHorizontal: 10,
-    paddingVertical: 5,
-    minHeight: 50,
+    paddingVertical: 6,
+    paddingHorizontal: 8,
   },
-  task: {
+  item: {
     color: "#fff",
     width: "40%",
     fontSize: 16,
@@ -94,8 +98,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     flexDirection: "row",
     elevation: 12,
-    borderRadius: 7,
-    marginVertical: 10,
+    borderRadius: 10,
+    marginVertical: 8,
     justifyContent: "space-evenly",
   },
 
@@ -108,10 +112,9 @@ const styles = StyleSheet.create({
     borderRadius: 3,
   },
 
-  taskText: {
-    fontWeight: "bold",
-    fontSize: 15,
-    color: "#1f145c",
+  dateText: {
+    fontSize: 10,
+    color: "#ffffff",
   },
 });
 
