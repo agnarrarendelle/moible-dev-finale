@@ -19,7 +19,7 @@ const Header = (prop: Prop) => {
 
 const styles = StyleSheet.create({
   header: {
-    padding: 20,
+    padding: 25,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
