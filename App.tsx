@@ -20,7 +20,12 @@ const App = () => {
         <Stack.Screen
           name="ListDetail"
           component={ListDetail}
-          options={({ route }) => ({ title: route.params.task })}
+          options={({ route }) => ({
+            title: route.params.task,
+            headerStyle: {
+              backgroundColor: "#fff",
+            },
+          })}
         ></Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
