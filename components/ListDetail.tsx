@@ -1,11 +1,20 @@
 import React, { useState } from "react";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { View, Text, Button, TextInput } from "react-native";
+import {
+  Text,
+  TextInput,
+  StyleSheet,
+  Dimensions,
+  Pressable,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 type ListDetailScreenProp = NativeStackScreenProps<
   StackParamList,
   "ListDetail"
 >;
+
+const windowHeight = Dimensions.get("window").height;
+const windowWidth = Dimensions.get("window").width;
 const ListDetail: React.FC<ListDetailScreenProp> = (prop) => {
   const [taskName, setTaskName] = useState(prop.route.params.task);
   const [taskDetail, setTaskDetail] = useState(
@@ -40,5 +49,45 @@ const ListDetail: React.FC<ListDetailScreenProp> = (prop) => {
     </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  titleInput: {
+    opacity: 0.5,
+    fontSize: 30,
+    left: 20,
+  },
+
+  detailInput: {
+    top: 1,
+    bottom: 10,
+    left: 20,
+    padding: 10,
+    color: "#000000",
+    height: windowHeight * 0.5,
+    opacity: 0.5,
+    fontSize: 20,
+  },
+
+  saveButton: {
+    alignItems: "center",
+    paddingVertical: 12,
+    paddingHorizontal: 32,
+    borderRadius: 4,
+    elevation: 3,
+    backgroundColor: "black",
+    textAlign: "center",
+    width: windowWidth * 0.5,
+    marginLeft: "auto",
+    marginRight: "auto",
+  },
+
+  saveButtonText: {
+    fontSize: 16,
+    lineHeight: 21,
+    fontWeight: "bold",
+    letterSpacing: 0.25,
+    color: "white",
+  },
+});
 
 export default ListDetail;
