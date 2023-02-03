@@ -34,7 +34,9 @@ const ListDetail: React.FC<ListDetailScreenProp> = (prop) => {
         numberOfLines={6}
         onChangeText={(detail) => setTaskDetail(detail)}
       ></TextInput>
-      <Button title="save" onPress={onSaveBtnPressed}></Button>
+      <Pressable style={styles.saveButton} onPress={onSaveBtnPressed}>
+        <Text style={styles.saveButtonText}>save</Text>
+      </Pressable>
     </SafeAreaView>
   );
 };
