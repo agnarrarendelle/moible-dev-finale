@@ -6,6 +6,9 @@ type ListDetailScreenProp = NativeStackScreenProps<
   StackParamList,
   "ListDetail"
 >;
+
+const windowHeight = Dimensions.get("window").height;
+const windowWidth = Dimensions.get("window").width;
 const ListDetail: React.FC<ListDetailScreenProp> = (prop) => {
   const [taskName, setTaskName] = useState(prop.route.params.task);
   const [taskDetail, setTaskDetail] = useState(
