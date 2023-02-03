@@ -6,9 +6,6 @@ type ListDetailScreenProp = NativeStackScreenProps<
   StackParamList,
   "ListDetail"
 >;
-
-const windowHeight = Dimensions.get("window").height;
-const windowWidth = Dimensions.get("window").width;
 const ListDetail: React.FC<ListDetailScreenProp> = (prop) => {
   const [taskName, setTaskName] = useState(prop.route.params.task);
   const [taskDetail, setTaskDetail] = useState(
@@ -37,9 +34,6 @@ const ListDetail: React.FC<ListDetailScreenProp> = (prop) => {
         numberOfLines={6}
         onChangeText={(detail) => setTaskDetail(detail)}
       ></TextInput>
-        value={taskDetail}
-        multiline={true}
-
       <Button title="save" onPress={onSaveBtnPressed}></Button>
     </SafeAreaView>
   );
