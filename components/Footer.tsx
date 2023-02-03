@@ -1,5 +1,12 @@
 import React from "react";
-import { View, TextInput, TouchableOpacity, StyleSheet, KeyboardAvoidingView, Platform } from "react-native";
+import {
+  View,
+  TextInput,
+  TouchableOpacity,
+  StyleSheet,
+  KeyboardAvoidingView,
+  Platform,
+} from "react-native";
 import Icon from "react-native-vector-icons/MaterialIcons";
 
 type Prop = {
@@ -11,8 +18,9 @@ type Prop = {
 const Footer = (prop: Prop) => {
   return (
     <KeyboardAvoidingView
-    behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-     style={styles.footer}>
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      style={styles.footer}
+    >
       <View style={styles.inputContainer}>
         <TextInput
           value={prop.textInput}
@@ -44,7 +52,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     elevation: 40,
     backgroundColor: "#fff",
-    borderColor: '#C0C0C0',
+    borderColor: "#C0C0C0",
     flex: 1,
     marginVertical: 20,
     marginRight: 20,
