@@ -3,15 +3,13 @@ import Icon from "react-native-vector-icons/MaterialIcons";
 
 type Prop = {
   clearAllTodos: () => void;
-  numOfTodos:number
+  numOfTodos: number;
 };
 
 const Header = (prop: Prop) => {
   return (
     <View style={styles.header}>
-      <Text
-        style={styles.headerText}
-      >
+      <Text style={styles.headerText}>
         {`You have ${prop.numOfTodos} todos in your list`}
       </Text>
       <Icon name="delete" size={40} color="blue" onPress={prop.clearAllTodos} />
@@ -27,11 +25,11 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
 
-  headerText:{
+  headerText: {
     fontWeight: "bold",
-          fontSize: 25,
-          color: "#000000",
-  }
+    fontSize: 25,
+    color: "#000000",
+  },
 });
 
 export default Header;
