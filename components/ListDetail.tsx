@@ -20,18 +20,22 @@ const ListDetail: React.FC<ListDetailScreenProp> = (prop) => {
   return (
     <SafeAreaView>
       <TextInput
+        placeholder="Edit the name of this task"
+        style={styles.titleInput}
         value={taskName}
         onChangeText={(task) => setTaskName(task)}
       ></TextInput>
       <TextInput
-        value={taskDetail}
-        multiline={true}
         placeholder="Add some detail to this task"
         placeholderTextColor={"#646464"}
         style={styles.detailInput}
+        value={taskDetail}
+        multiline={true}
         numberOfLines={6}
         onChangeText={(detail) => setTaskDetail(detail)}
       ></TextInput>
+        value={taskDetail}
+        multiline={true}
 
       <Button title="save" onPress={onSaveBtnPressed}></Button>
     </SafeAreaView>
