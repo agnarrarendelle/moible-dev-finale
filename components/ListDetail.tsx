@@ -35,4 +35,44 @@ const ListDetail: React.FC<ListDetailScreenProp> = (prop) => {
   );
 };
 
+const styles = StyleSheet.create({
+  titleInput: {
+    opacity: 0.5,
+    fontSize: 30,
+    left: 20,
+  },
+
+  detailInput: {
+    top: 1,
+    bottom: 10,
+    left: 20,
+    padding: 10,
+    color: "#000000",
+    height: windowHeight * 0.5,
+    opacity: 0.5,
+    fontSize: 20,
+  },
+
+  saveButton: {
+    alignItems: "center",
+    paddingVertical: 12,
+    paddingHorizontal: 32,
+    borderRadius: 4,
+    elevation: 3,
+    backgroundColor: "black",
+    textAlign: "center",
+    width: windowWidth * 0.5,
+    marginLeft: "auto",
+    marginRight: "auto",
+  },
+
+  saveButtonText: {
+    fontSize: 16,
+    lineHeight: 21,
+    fontWeight: "bold",
+    letterSpacing: 0.25,
+    color: "white",
+  },
+});
+
 export default ListDetail;
