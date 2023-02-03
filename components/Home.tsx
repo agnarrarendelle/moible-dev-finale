@@ -134,7 +134,7 @@ const Home: React.FC<HomeScreenProp> = (prop) => {
 
   return (
     <SafeAreaView style={styles.main}>
-      <Header clearAllTodos={clearAllTodos}></Header>
+      <Header clearAllTodos={clearAllTodos} numOfTodos={todos.length}></Header>
       <List
         filterOption={filterOption}
         todos={todos}
