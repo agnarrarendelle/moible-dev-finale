@@ -38,7 +38,7 @@ const ListItem = (prop: Prop) => {
         <TouchableOpacity onPress={() => prop.markTodoComplete(prop.todo.id)}>
           <View
             style={[
-              styles.actionIcon,
+              styles.icon,
               {
                 backgroundColor: prop.todo?.isCompleted ? "#aaaaaa" : "#0fee07",
               },
@@ -48,7 +48,7 @@ const ListItem = (prop: Prop) => {
           </View>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => prop.deleteTodo(prop.todo.id)}>
-          <View style={styles.actionIcon}>
+          <View style={styles.icon}>
             <Icon name="close" size={25} color="red" />
           </View>
         </TouchableOpacity>
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-evenly",
   },
 
-  actionIcon: {
+  icon: {
     height: 25,
     width: 25,
     backgroundColor: "#fff",
