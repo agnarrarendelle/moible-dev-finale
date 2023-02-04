@@ -26,6 +26,8 @@ const Footer = (prop: Prop) => {
           value={prop.textInput}
           placeholder="Add Todo"
           onChangeText={(text) => prop.setUserInput(text)}
+        placeholderTextColor={"#646464"}
+
         />
       </View>
       <TouchableOpacity onPress={prop.addTodo}>
@@ -40,32 +42,31 @@ const Footer = (prop: Prop) => {
 const styles = StyleSheet.create({
   footer: {
     position: "absolute",
-    bottom: 0,
     width: "100%",
+    bottom: 0,
     flexDirection: "row",
     alignItems: "center",
-    paddingHorizontal: 20,
-    backgroundColor: "#fff",
+    paddingHorizontal: 30,
   },
   inputContainer: {
-    height: 40,
-    paddingHorizontal: 20,
-    elevation: 40,
-    backgroundColor: "#fff",
     borderColor: "#C0C0C0",
+    backgroundColor: "#fff",
     flex: 1,
+    height: 40,
     marginVertical: 20,
     marginRight: 20,
+    paddingHorizontal: 20,
     borderRadius: 40,
+    elevation: 40,
   },
   iconContainer: {
-    height: 40,
-    width: 40,
     backgroundColor: "#1f145c",
-    elevation: 40,
-    borderRadius: 25,
     justifyContent: "center",
     alignItems: "center",
+    height: 40,
+    width: 40,
+    borderRadius: 15,
+    elevation: 40,
   },
 });
 export default Footer;
