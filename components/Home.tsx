@@ -79,23 +79,23 @@ const Home: React.FC<HomeScreenProp> = (prop) => {
     const todo: Todo = todos.find((todo) => todo.id === todoId)!;
     Alert.alert(`Are you sure you want to delete task "${todo.task}?"`, "", [
       {
-        text: "Yes",
+        text: "Confirm",
         onPress: () => setTodos(todos.filter((item) => item.id !== todoId)),
       },
       {
-        text: "No",
+        text: "Cancel",
       },
     ]);
   };
 
   const clearAllTodos = () => {
-    Alert.alert("Confirm", "Clear todos?", [
+    Alert.alert("Clear all todos?", "", [
       {
-        text: "Yes",
+        text: "Confirm",
         onPress: () => setTodos([]),
       },
       {
-        text: "No",
+        text: "Cancel",
       },
     ]);
   };
