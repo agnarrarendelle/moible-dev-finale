@@ -26,8 +26,7 @@ const Footer = (prop: Prop) => {
           value={prop.textInput}
           placeholder="Add Todo"
           onChangeText={(text) => prop.setUserInput(text)}
-        placeholderTextColor={"#646464"}
-
+          placeholderTextColor={"#646464"}
         />
       </View>
       <TouchableOpacity onPress={prop.addTodo}>
