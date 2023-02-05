@@ -1,4 +1,4 @@
-import { describe, expect, test } from "@jest/globals";
+import { describe, expect } from "@jest/globals";
 import renderer from 'react-test-renderer';
 import App from "../App";
 describe('<App />', () => {
