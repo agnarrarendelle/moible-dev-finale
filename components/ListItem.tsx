@@ -1,3 +1,7 @@
+// REFERENCES:
+// 1. https://molly1024.medium.com/react-native-%E5%AF%AB-app-%E5%BE%9E-todo-list-%E9%96%8B%E5%A7%8B-%E7%B5%90%E5%90%88%E8%A3%9D%E7%BD%AE-async-storage-%E6%87%89%E7%94%A8-ebb86e5b7c2e
+
+
 import moment from "moment";
 import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
 import Icon from "react-native-vector-icons/MaterialIcons";

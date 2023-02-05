@@ -1,3 +1,5 @@
+// REFERENCEs:
+// 1.https://javascript.plainenglish.io/build-a-todo-list-app-using-react-native-526f8fe11ff1
 import React, { useState } from "react";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import {
