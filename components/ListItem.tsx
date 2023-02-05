@@ -6,10 +6,15 @@ import moment from "moment";
 import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
 import Icon from "react-native-vector-icons/MaterialIcons";
 type Prop = {
+  //a single task object
   todo: Todo;
+  //the index of that task in task array
   index: number;
+  //function to flip a tasks's status
   flipTodoStatus: (id: string) => void;
+  //function to delete a todo
   deleteTodo: (id: string) => void;
+  //function to navigate to a task's detail page
   openListDetail: (id: string, task: string, detail?: string) => void;
 };
 const ListItem = (prop: Prop) => {
@@ -17,6 +22,7 @@ const ListItem = (prop: Prop) => {
     <TouchableOpacity
       style={styles.container}
       onPress={() =>
+        // when the list item is clicked, navigate to task detail page
         prop.openListDetail(prop.todo.id, prop.todo.task, prop.todo.detail)
       }
     >
@@ -28,6 +34,7 @@ const ListItem = (prop: Prop) => {
           style={[
             styles.item,
             {
+              // changed the task name text style based on isCompleted
               textDecorationLine: prop.todo?.isCompleted
                 ? "line-through"
                 : "none",

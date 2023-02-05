@@ -17,17 +17,24 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack";
 type HomeScreenProp = NativeStackScreenProps<StackParamList, "Home">;
 
 const Home: React.FC<HomeScreenProp> = (prop) => {
+  //the array of all tasks
   const [todos, setTodos] = useState<Todo[]>([]);
+  //current user input in Footer
   const [userInput, setUserInput] = useState<string>("");
+  //current filter option from Dropdown
   const [filterOption, setFilterOption] = useState<string>(SortOptions.All);
+
+  //When the app is opened, load all saved tasks from user device
   useEffect(() => {
     getTodosLocal();
   }, []);
 
+  //Whenever the task array is modified, save those changes to user device
   useEffect(() => {
     saveTodoToLocal(todos);
   }, [todos]);
 
+  //add a task to the array and clear user input
   const addTodo = () => {
     if (userInput === "") {
       Alert.alert("Task name cannot be empty", "Please enter a task name");
@@ -44,6 +51,7 @@ const Home: React.FC<HomeScreenProp> = (prop) => {
     setUserInput("");
   };
 
+  //save current task array to local device
   const saveTodoToLocal = async (todos: Todo[]) => {
     try {
       const savedTodos = JSON.stringify(todos);
@@ -53,11 +61,14 @@ const Home: React.FC<HomeScreenProp> = (prop) => {
     }
   };
 
+  //load all todos from local device
   const getTodosLocal = async () => {
     try {
       const todos = await AsyncStorage.getItem("todos");
       if (todos != null) {
         const todoArr: Todo[] = JSON.parse(todos);
+        //Since Date is not a serializable object, it will become plain text when text,
+        //so when the tasks are loaded from local, we need to update the data member to a Data object built from saved date string
         todoArr.forEach((todo) => (todo.date = new Date(todo.date)));
         setTodos(todoArr);
       }
@@ -66,6 +77,7 @@ const Home: React.FC<HomeScreenProp> = (prop) => {
     }
   };
 
+  //Find a todo with the todoId and flip its isComplete property to the opposite
   const flipTodoStatus = (todoId: string) => {
     const newTodosItem = todos.map((item) => {
       if (item.id === todoId) {
@@ -78,6 +90,7 @@ const Home: React.FC<HomeScreenProp> = (prop) => {
     setTodos(newTodosItem);
   };
 
+  //Delete a task from task array with todoId
   const deleteTodo = (todoId: string) => {
     const todo: Todo = todos.find((todo) => todo.id === todoId)!;
     Alert.alert(`Are you sure you want to delete task "${todo.task}?"`, "", [
@@ -91,6 +104,7 @@ const Home: React.FC<HomeScreenProp> = (prop) => {
     ]);
   };
 
+  //Removed all todos in the app
   const clearAllTodos = () => {
     Alert.alert("Clear all todos?", "", [
       {
@@ -103,6 +117,10 @@ const Home: React.FC<HomeScreenProp> = (prop) => {
     ]);
   };
 
+  //Check the option to see if it is either "Name" or "Date",
+  //and return a sort task array if it is.
+  //If not, call setFilterOptions to update the filterOption to option.
+  //When the app reloads, the tasks on the UI will be filtered accordingly
   const sortOrFilterToDo = (option: string) => {
     let res: Todo[] = [...todos];
     switch (option) {
@@ -119,6 +137,7 @@ const Home: React.FC<HomeScreenProp> = (prop) => {
     setTodos(res);
   };
 
+  //Find a todo with todoId and update its name and detail
   const changeTodoDetail = (
     todoId: string,
     newTask: string,

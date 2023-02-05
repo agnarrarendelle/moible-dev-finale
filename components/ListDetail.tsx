@@ -17,12 +17,20 @@ type ListDetailScreenProp = NativeStackScreenProps<
 
 const windowHeight = Dimensions.get("window").height;
 const windowWidth = Dimensions.get("window").width;
+
 const ListDetail: React.FC<ListDetailScreenProp> = (prop) => {
+  //the task name in editable text area
   const [taskName, setTaskName] = useState(prop.route.params.task);
+  //the task detail in editable text area
+  //Since not every task has a detail text,
+  //we need to see if they exist first,
+  //and display empty space if it does not exist
   const [taskDetail, setTaskDetail] = useState(
     prop.route.params.detail === undefined ? "" : prop.route.params.detail
   );
 
+  //When save button is clicked, update the task name and detail
+  //and navigate back to Home page
   const onSaveBtnPressed = () => {
     const id = prop.route.params.id;
     prop.navigation.navigate("Home");

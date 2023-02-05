@@ -2,7 +2,9 @@ import { View, Text, StyleSheet } from "react-native";
 import Icon from "react-native-vector-icons/MaterialIcons";
 
 type Prop = {
+  //a function to remove all tasks
   clearAllTodos: () => void;
+  //the number of tasks in the app
   numOfTodos: number;
 };
 

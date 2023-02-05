@@ -4,16 +4,26 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
 import ListItem from "./ListItem";
 import Dropdown from "./Dropdown";
+
 type Prop = {
+  //all tasks
   todos: Todo[];
+  //filter option
   filterOption: string;
+  //function to flip a tasks's status
   flipTodoStatus: (id: string) => void;
+  //function to delete a todo
   deleteTodo: (id: string) => void;
+  //function to sort the task array
   sortBy: (option: string) => void;
+  //function to update the name and detail of a task
   setTaskDetail: (id: string, newTask: string, newDetail: string) => void;
+  //stack navigator to navigate back to Home page
   navigator: NativeStackNavigationProp<StackParamList, "Home", undefined>;
 };
 const List = (prop: Prop) => {
+
+  //When called, it will return a filtered task array based on filterOption
   const getFilteredList = () => {
     switch (prop.filterOption) {
       case FilterOptions.All:
@@ -25,6 +35,7 @@ const List = (prop: Prop) => {
     }
   };
 
+  //When called, it will navigate to a task's detail page
   const openListDetail = (id: string, task: string, detail?: string) => {
     prop.navigator.navigate("ListDetail", {
       id: id,

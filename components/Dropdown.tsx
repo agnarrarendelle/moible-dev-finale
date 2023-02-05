@@ -2,6 +2,8 @@ import { useState } from "react";
 import { FilterOptions, SortOptions } from "../constant";
 import DropDownPicker from "react-native-dropdown-picker";
 type Prop = {
+  //a function to sort the task array. 
+  //It is called whenever user change the dropdown
   sortBy: (option: string) => void;
 };
 
@@ -14,6 +16,8 @@ type DropdownOption = {
 const Dropdown = (prop: Prop) => {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(null);
+
+  //define categories and labels in the dropdown
   const [items, setItems] = useState<DropdownOption[]>([
     { label: "Sort by", value: "sort" },
     { label: "Name", value: SortOptions.Name, parent: "sort" },
@@ -39,6 +43,7 @@ const Dropdown = (prop: Prop) => {
       setOpen={setOpen}
       setValue={setValue}
       setItems={setItems}
+      //call sort function when dropdown option is changed
       onChangeValue={(v) => prop.sortBy(v!)}
     />
   );

@@ -14,8 +14,11 @@ import {
 import Icon from "react-native-vector-icons/MaterialIcons";
 
 type Prop = {
+  //a text that will be shown in input bar
   textInput: string;
+  //function to set current user input
   setUserInput: (text: string) => void;
+  //function to add a task
   addTodo: () => void;
 };
 
@@ -29,6 +32,7 @@ const Footer = (prop: Prop) => {
         <TextInput
           value={prop.textInput}
           placeholder="Add Todo"
+          //whenever the text is changed, update the user input
           onChangeText={(text) => prop.setUserInput(text)}
           placeholderTextColor={"#646464"}
         />
