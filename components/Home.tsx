@@ -100,7 +100,7 @@ const Home: React.FC<HomeScreenProp> = (prop) => {
     ]);
   };
 
-  const sortToDo = (option: string) => {
+  const sortOrFilterToDo = (option: string) => {
     let res: Todo[] = [...todos];
     switch (option) {
       case SortOptions.Name:
@@ -140,7 +140,7 @@ const Home: React.FC<HomeScreenProp> = (prop) => {
         todos={todos}
         markTodoComplete={markTodoComplete}
         deleteTodo={deleteTodo}
-        sortBy={sortToDo}
+        sortBy={sortOrFilterToDo}
         setTaskDetail={changeTodoDetail}
         navigator={prop.navigation}
       ></List>
