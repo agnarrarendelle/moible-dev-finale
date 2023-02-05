@@ -63,7 +63,7 @@ const Home: React.FC<HomeScreenProp> = (prop) => {
     }
   };
 
-  const markTodoComplete = (todoId: string) => {
+  const flipTodoStatus = (todoId: string) => {
     const newTodosItem = todos.map((item) => {
       if (item.id === todoId) {
         const currState = item.isCompleted;
@@ -138,7 +138,7 @@ const Home: React.FC<HomeScreenProp> = (prop) => {
       <List
         filterOption={filterOption}
         todos={todos}
-        markTodoComplete={markTodoComplete}
+        flipTodoStatus={flipTodoStatus}
         deleteTodo={deleteTodo}
         sortBy={sortOrFilterToDo}
         setTaskDetail={changeTodoDetail}

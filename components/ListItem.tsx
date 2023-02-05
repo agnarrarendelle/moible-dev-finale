@@ -4,7 +4,7 @@ import Icon from "react-native-vector-icons/MaterialIcons";
 type Prop = {
   todo: Todo;
   index: number;
-  markTodoComplete: (id: string) => void;
+  flipTodoStatus: (id: string) => void;
   deleteTodo: (id: string) => void;
   openListDetail: (id: string, task: string, detail?: string) => void;
 };
@@ -35,7 +35,7 @@ const ListItem = (prop: Prop) => {
         <Text style={styles.dateText}>
           {moment(prop.todo.date).format("YYYY/MM/DD")}
         </Text>
-        <TouchableOpacity onPress={() => prop.markTodoComplete(prop.todo.id)}>
+        <TouchableOpacity onPress={() => prop.flipTodoStatus(prop.todo.id)}>
           <View
             style={[
               styles.icon,

@@ -7,7 +7,7 @@ import Dropdown from "./Dropdown";
 type Prop = {
   todos: Todo[];
   filterOption: string;
-  markTodoComplete: (id: string) => void;
+  flipTodoStatus: (id: string) => void;
   deleteTodo: (id: string) => void;
   sortBy: (option: string) => void;
   setTaskDetail: (id: string, newTask: string, newDetail: string) => void;
@@ -43,7 +43,7 @@ const List = (prop: Prop) => {
         renderItem={({ item, index }) => (
           <ListItem
             todo={item}
-            markTodoComplete={prop.markTodoComplete}
+            flipTodoStatus={prop.flipTodoStatus}
             deleteTodo={prop.deleteTodo}
             index={index + 1}
             openListDetail={openListDetail}
