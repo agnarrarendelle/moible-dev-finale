@@ -18,11 +18,11 @@ const Home: React.FC<HomeScreenProp> = (prop) => {
   const [userInput, setUserInput] = useState<string>("");
   const [filterOption, setFilterOption] = useState<string>(SortOptions.All);
   useEffect(() => {
-    getTodosFromUserDevice();
+    getTodosLocal();
   }, []);
 
   useEffect(() => {
-    saveTodoToUserDevice(todos);
+    saveTodoToLocal(todos);
   }, [todos]);
 
   const addTodo = () => {
@@ -41,16 +41,16 @@ const Home: React.FC<HomeScreenProp> = (prop) => {
     setUserInput("");
   };
 
-  const saveTodoToUserDevice = async (todos: Todo[]) => {
+  const saveTodoToLocal = async (todos: Todo[]) => {
     try {
-      const stringifyTodos = JSON.stringify(todos);
-      await AsyncStorage.setItem("todos", stringifyTodos);
+      const savedTodos = JSON.stringify(todos);
+      await AsyncStorage.setItem("todos", savedTodos);
     } catch (error) {
       console.error(error);
     }
   };
 
-  const getTodosFromUserDevice = async () => {
+  const getTodosLocal = async () => {
     try {
       const todos = await AsyncStorage.getItem("todos");
       if (todos != null) {
